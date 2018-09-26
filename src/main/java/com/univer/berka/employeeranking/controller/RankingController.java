@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.univer.berka.employeeranking.model.Entry;
+import com.univer.berka.employeeranking.dto.ResponseEntryDTO;
 import com.univer.berka.employeeranking.service.EntryService;
 
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class RankingController {
 
 	@GetMapping("/{user}")
 	public ResponseEntity getUserActions(@PathVariable("user") final String user) {
-		List<Entry> userActions = service.getByUser(user);
+		List<ResponseEntryDTO> userActions = service.getByUser(user);
 		if (userActions.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
