@@ -1,14 +1,11 @@
 package com.univer.berka.employeeranking.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import com.univer.berka.employeeranking.dto.EntryDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,18 +48,5 @@ public class Entry implements Serializable {
     
     @Column(name = "number_of_commission_units_per_hour", nullable = false, length = 80)
     private int numberOfCommissionUnitsPerHour;
-    
-    public Entry(EntryDTO dto) {
-    	this.employeeIdentity = new EmployeeIdentity(dto.getKorisnik(), new Timestamp(dto.getDatum().getTime()), dto.getZona());
-    	this.depo = dto.getDepo();
-    	this.timeSpent = dto.getVreme();
-    	this.numberOfPallets = dto.getBrojPaleta();
-    	this.numberOfCommissionUnits = dto.getBrojKomisionihJedinica();
-    	this.numberOfUnits = dto.getBrojKomada();
-    	this.numberOfLines = dto.getBrojLinija();
-    	this.weight = dto.getTezina();
-    	this.volume = dto.getVolumen();
-    	this.numberOfCommissionUnitsPerHour = dto.getBrojKomisionihJedinicaNaSat();
-    }
-    
+     
 }

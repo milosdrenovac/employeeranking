@@ -11,6 +11,7 @@ import com.ebay.xcelite.Xcelite;
 import com.ebay.xcelite.reader.SheetReader;
 import com.ebay.xcelite.sheet.XceliteSheet;
 import com.univer.berka.employeeranking.dto.EntryDTO;
+import com.univer.berka.employeeranking.exceptions.DocumentParsingException;
 
 public class ExcelSheetParser {
 
@@ -19,7 +20,12 @@ public class ExcelSheetParser {
 		Xcelite xcelite = new Xcelite(convFile);
 		XceliteSheet sheet = xcelite.getSheet(0);
 		SheetReader<EntryDTO> reader = sheet.getBeanReader(EntryDTO.class);
-		Collection<EntryDTO> read = reader.read();
+		Collection<EntryDTO> read = null;
+		try {
+			read = reader.read();
+		} catch (IllegalArgumentException e) {
+			throw new DocumentParsingException(e.getMessage());
+		}
 		convFile.delete();
 		return read;
 	}
