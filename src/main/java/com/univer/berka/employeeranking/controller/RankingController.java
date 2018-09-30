@@ -34,7 +34,6 @@ public class RankingController {
 
 	@GetMapping("/{user}")
 	public ResponseEntity getUserActions(@PathVariable("user") final String user) {
-		System.out.println("CAO");
 		List<ResponseEntryDTO> userActions = service.getByUser(user);
 		if (userActions.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
