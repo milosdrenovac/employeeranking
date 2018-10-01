@@ -1,6 +1,6 @@
 package com.univer.berka.employeeranking.util;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +18,7 @@ public class EntryConverter implements Converter<EntryDTO, Entry>{
 	@Override
 	public Entry convert(EntryDTO dto) {
 		Entry entry = new Entry();
-		entry.setEmployeeIdentity(new EmployeeIdentity(dto.getKorisnik(), new Timestamp(dto.getDatum().getTime()), dto.getZona()));
+		entry.setEmployeeIdentity(new EmployeeIdentity(dto.getKorisnik(), new Date(dto.getDatum().getTime()), dto.getZona()));
 		entry.setDepo(dto.getDepo());
 		entry.setTimeSpent(dto.getVreme());
 		entry.setNumberOfPallets(dto.getBrojPaleta());

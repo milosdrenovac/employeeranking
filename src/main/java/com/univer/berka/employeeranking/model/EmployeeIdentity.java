@@ -1,7 +1,7 @@
 package com.univer.berka.employeeranking.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -25,7 +25,7 @@ public class EmployeeIdentity implements Serializable {
 	private String user;
 	
     @Column(nullable = false)
-    private Timestamp date;
+    private Date date;
     
     
     @Column(nullable = false, length = 10)

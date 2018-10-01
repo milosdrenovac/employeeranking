@@ -1,6 +1,6 @@
 package com.univer.berka.employeeranking.dto;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import com.univer.berka.employeeranking.model.Entry;
 
@@ -13,7 +13,7 @@ public class ResponseEntryDTO {
 
 	private String user;
 
-	private Timestamp date;
+	private Date date;
 
 	private String zone;
 
